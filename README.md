@@ -58,7 +58,7 @@ Customize your configs, use "Sketchs -> Export compiled Binary", flash it, have 
 
 
 ## Flashing  
-**Important**: Don't forget to read and backup your current Eeprom-settings with `M503`!!!
+**Important**: Don't forget to read and backup your current EEPROM-settings with `M503`!!!
 
 The display and the USB-Port are sharing the same wires so flashing the motherboard-firmware need some extra work.  
 There are two ways possible to flash the firmware.  
@@ -91,7 +91,7 @@ I recommend to reset the newly flashed firmware to its defaults and overwrite an
 The gcode command to reset the firmware to the hardcoded defaults is `M502`,  
 followed by `M500` to save these default setting to EEPROM.  
 After that you can restore your settings from your `M503`-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`  
-Save again by `M500` and finally reload all stored data from Eeprom by `M501`  
+Save again by `M500` and finally reload all stored data from EEPROM by `M501`  
 
 You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/)) or using the Terminal Tab in Octoprint.
   
