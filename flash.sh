@@ -1,17 +1,10 @@
-#!/bin/bash
+# query filename
+echo "Enter filename of the *.hex to flash"
+read FIRMWARE_HEX
 
-# linux
-apt-get install avrdude
-# Mac
-#brew install avrdude
-
-PROGRAM='avrdude'
-
-# Change it to the firmware file path in hex format.
-FIRMWARE_HEX='./firmware.hex'
-
+# try to flash in a loop until the command finishs succesfully
 while true; do
-  $PROGRAM -v -p atmega2560 -c wiring -P $(ls /dev/ttyUSB*) -b 115200 -D -U flash:w:$FIRMWARE_HEX:i;
+  /usr/bin/avrdude -v -p atmega2560 -c wiring -P $(ls /dev/ttyUSB*) -b 115200 -D -U flash:w:$FIRMWARE_HEX:i;
   if [ "$?" -eq "0" ]; then
     break;
   fi;
