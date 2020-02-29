@@ -81,8 +81,7 @@ Steps:
 - Enter Path and filename e.g. `./ASWX1_Marlin_2.0.4.4_V1.hex`
 - You will see timeout errors - thats normal.  
 - Plug USB Cable  
-- Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs.
-This could take several trys, no panic.
+- Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs. <br> This could take several trys, no panic.
   
   
 ### Reset to factory defaults
