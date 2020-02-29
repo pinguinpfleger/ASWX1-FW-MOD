@@ -1,6 +1,3 @@
-# query filename
-echo "Enter filename of the *.hex to flash"
-read FIRMWARE_HEX
 
 # try to flash in a loop until the command finishs succesfully
 while true; do
