@@ -86,7 +86,8 @@ Steps:
   
 ### Reset to factory defaults
 I recommend to reset the newly flashed firmware to its defaults and overwrite any older settings.  
-**Important:** Don't forget to read your settings by `M503` and copy/save them somewhere before you start flashing the Firmware.  
+
+**Important:** Don't forget to **read your settings by `M503` and copy/save them** somewhere before you start flashing the Firmware.  
 
 The gcode command to reset the firmware to the hardcoded defaults is `M502`,  
 followed by `M500` to save these default setting to EEPROM.  
