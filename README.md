@@ -2,12 +2,12 @@
 **Artillery Sidewinder X1 Firmware Mod**  
    
 The ASWX1-FW-Mod is an optimization for the Artillery Sidewinder X1 3D printer.  
-The Artillery Sidewinder X1 is delivered with Marlin 1.19 [link](http://www.artillery3d.com/DownLoad/15688.html) and deactivated EEPROM memory function (M500).  
+The Artillery Sidewinder X1 is delivered with [Marlin 1.19](http://www.artillery3d.com/DownLoad/15688.html) and deactivated EEPROM memory function (M500).  
   
 This optimized firmware is based on [Marlin Firmware Version 2.0.x](https://github.com/MarlinFirmware/Marlin/tree/2.0.x)  
 and on Marlin [Artillery Sidewinder X1 config](https://github.com/MarlinFirmware/Configurations/tree/master/config/examples/Artillery/Sidewinder%20X1)  
 
-There is also an (optimized firmware for Artillery Sidewinder X1 touch display)[https://github.com/pinguinpfleger/ASWX1-TFTFW-MOD] which you can install too but it is optionally.  
+There is also an [optimized firmware for Artillery Sidewinder X1 touch display](https://github.com/pinguinpfleger/ASWX1-TFTFW-MOD) which you can install too but it is optionally.  
 
 ## Releases  
   29.02.2020 [ASWX1-FW-MOD-v1.0](https://github.com/pinguinpfleger/ASWX1-FW-MOD/releases/tag/ASWX1-FW-MOD-v1.0) - [ASWX1-FW-MOD-v1.0.zip](https://github.com/pinguinpfleger/ASWX1-FW-MOD/releases/download/ASWX1-FW-MOD-v1.0/ASWX1-FW-MOD-v1.0.zip)  based on Marlin 2.0.4.4
@@ -25,8 +25,8 @@ There is also an (optimized firmware for Artillery Sidewinder X1 touch display)[
     No need for high acceleration and jerk values to get sharp edges.  
    Read https://marlinfw.org/docs/features/lin_advance.html for more details and how to calibrate.  
    By default the K_Factor is set to 0, so it is disabled.  
-   To enable it using gcode you should first calibrate your specific K factor.  
-   You can do this [here](https://marlinfw.org/tools/lin_advance/k-factor.html). Accordingly set the K factor within your slicer using e.g. `M900 K0.2`  
+   To enable it using gcode you should first [calibrate your specific K factor](https://marlinfw.org/tools/lin_advance/k-factor.html). 
+   Accordingly set the K factor within your slicer using e.g. `M900 K0.2`  
 
 4. **S_CURVE_ACCELERATION activated**  
    This option eliminates vibration during printing by fitting a Bézier curve to move acceleration, producing much smoother direction changes.  
@@ -34,20 +34,33 @@ There is also an (optimized firmware for Artillery Sidewinder X1 touch display)[
 5. **ADAPTIVE_STEP_SMOOTHING activated**  
     Adaptive Step Smoothing increases the resolution of multi-axis moves, particularly at step frequencies below 1kHz (for AVR) or 10kHz (for ARM), where aliasing between axes in multi-axis moves causes audible vibration and surface artifacts.
     The algorithm adapts to provide the best possible step smoothing at the lowest stepping frequencies.  
-
-
+    
 
 ## Individual adjustments  
 Individual adjustments can be made in [Configuration.h](/Marlin/Configuration.h) and [Configuration_adv.h](/Marlin/Configuration_adv.h)  
 [Read more about configuring Marlin](https://marlinfw.org/docs/configuration/configuration.html)  
 Of course the firmware must be recompiled than.  
-There are serveral ways to compile.  
-An easy one is [platformio CLI](https://docs.platformio.org/en/latest/installation.html#installation-methods) command.  
+There are serveral ways to compile.
+
+\[Linux / Mac\]
+An easy one do compile is [platformio CLI](https://docs.platformio.org/en/latest/installation.html#installation-methods) command.  
 To complile you just need execute `platformio run` in the root folder of this repository (where platformio.ini is also located).  
-The new compiled firmware is saved here: .pio/build/megaatmega2560/firmware.hex  
-  
+The new compiled firmware is saved here: .pio/build/megaatmega2560/firmware.hex
+
+\[Windows\]
+There is a great instruction how to [use Arduino-IDE on Marlin.org](https://marlinfw.org/docs/basics/install_arduino.html).
+This should be the easiest way on Windows.
+
+Bord: "Arduino/Genuino Mega or Mega 2560"
+Processor: "ATmega2560 (Mega 2560)"
+
+Customize your configs, use "Sketchs -> Export compiled Binary", flash
+
+
 ## Flashing  
-The display and the USB-Port are sharing the same wires so flashing the tft firmware need some extra work.  
+**Important**: Don't forget to read and backup your current Eeprom-settings with `M503`!!!
+
+The display and the USB-Port are sharing the same wires so flashing the motherboard-firmware need some extra work.  
 There are two ways possible to flash the firmware.  
   
 ### 1. Disconnect the display  
@@ -55,28 +68,32 @@ You have to open the printer and unplug the display.
   
 ### 2. Loop method  
 With this method we try to talk to the motherboard before the display is ready to listen.  
-The [flash.sh](/flash.sh) script is trying to flash the command in a loop until the command finishs succesfully.  
-Steps:  
-Make sure Artillery Sidewinder X1 is unplugged from the power supply.  
-Unplug USB Cable too.  
-Connect your linux box (or mac) with the printer USB-Port  
-Place firmware.hex and flash.sh in same directory and execute flash.sh.  
-You will see timeout errors thats normal.  
-Plug USB Cable  
-Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs  
+The [flash.sh](/flash.sh) script is trying to flash the command in a loop until the command finishs succesfully.
+
+E.g. this works fine with an Octopi and SSH-connection like [PuTTy](https://www.putty.org/).
+To get your Firmware-File onto the octopi while using a Windows-mashine you can use [WinSCP](https://winscp.net/).
+
+Steps:
+
+- Make sure Artillery Sidewinder X1 is unplugged from the power supply.  
+- Unplug USB Cable too.  
+- Connect your linux box (or mac) with the printer USB-Port.
+- Place firmware.hex and flash.sh in same directory and execute flash.sh.
+- Enter Path and filename e.g. `./ASWX1_Marlin_2.0.4.4_V1.hex`
+- You will see timeout errors thats normal.  
+- Plug USB Cable  
+- Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs. This could take several trys, no panic.
   
   
-### Reset to factory defaults  
+### Reset to factory defaults
 I recommend to reset the newly flashed firmware to its defaults and overwrite any older settings.  
-The gcode command is `M502` to reset the firmware to the hardcoded defaults,  
-followed by `M500` to save these default setting to EEPROM.  
-You can execute the gcode commands using a terminal program (Arduino has one included) or using the Terminal Tab in octoprint.  
-If you have no serial monitor for running the command you could temporary modify mks_config.txt with a text editor, to include the M502/M500 commands in Line 191 to look like this:  
-#SaveToEEPROM >moreitem_button4_cmd:M42 P4 S0;M42 P5 S255;M42 P6 S0;M502;M500;G4 S1;M42 P4 S255;M42 P5 S0;M42 P6 S0;  
-  
-Now, if you press SaveToEEPROM you will reset to factory defaults and save the settings.  
-Everything will get overwritten, so if you already have done PID Tuning you will need to redo this.  
-Do not forget to remove the M502 command after you executed it once, otherwise you will always reset your settings back to defaults and loose PIDs and Z-Offsets.  
+**Don't forget to read your settings by `M503` and copy/save them somewhere**
+The gcode command to reset the firmware to the hardcoded defaults is `M502`,  
+followed by `M500` to save these default setting to EEPROM.
+After that you can restore your settings from your M503-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`
+Save again by `M500` and finally reload all stored data from Eeprom by `M501`
+
+You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/)) or using the Terminal Tab in Octoprint.
   
 <br><br><hr>  
 
@@ -87,4 +104,5 @@ https://github.com/pinguinpfleger/ASWX1-TFTFW-MOD
   
 
 ## Links  
-RICS 3D Marlin 2 https://www.youtube.com/watch?v=JlgykMHhMzw  
+RICS 3D Marlin 2 https://www.youtube.com/watch?v=JlgykMHhMzw
+Waggster Mod (Marlin 2.0.2 BL-Touch) https://pretendprusa.co.uk/index.php?action=downloads;sa=view;down=16
