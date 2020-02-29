@@ -51,7 +51,7 @@ The new compiled firmware is saved here: .pio/build/megaatmega2560/firmware.hex
 There is a great instruction how to [use Arduino-IDE on Marlin.org](https://marlinfw.org/docs/basics/install_arduino.html).
 This should be the easiest way on Windows.
 
-Bord: "Arduino/Genuino Mega or Mega 2560"
+Bord: "Arduino/Genuino Mega or Mega 2560"  
 Processor: "ATmega2560 (Mega 2560)"
 
 Customize your configs, use "Sketchs -> Export compiled Binary", flash
