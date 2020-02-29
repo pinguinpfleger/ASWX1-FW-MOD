@@ -79,7 +79,7 @@ Steps:
 - Connect your Linux box (or Mac) with the printer USB-Port.
 - Install AVRDude by `sudo apt-get update && apt-get upgrade && apt-get install avr-dude`
 - Place firmware.hex and flash.sh on your Linux box (or Mac) and execute flash.sh.
-- Enter Path and filename e.g. `./ASWX1_Marlin_2.0.4.4_V1.hex`
+- Enter Path and filename (e.g. `./firmware.hex`)
 - You will see timeout errors - thats normal.  
 - Plug USB Cable  
 - Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs. <br> This could take several trys, no panic.
