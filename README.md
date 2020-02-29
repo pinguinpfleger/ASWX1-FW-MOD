@@ -87,10 +87,11 @@ Steps:
 ### Reset to factory defaults
 I recommend to reset the newly flashed firmware to its defaults and overwrite any older settings.  
 **Don't forget to read your settings by `M503` and copy/save them somewhere before you start flashing the Firmware**.  
+
 The gcode command to reset the firmware to the hardcoded defaults is `M502`,  
-followed by `M500` to save these default setting to EEPROM.
-After that you can restore your settings from your M503-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`
-Save again by `M500` and finally reload all stored data from Eeprom by `M501`
+followed by `M500` to save these default setting to EEPROM.  
+After that you can restore your settings from your `M503`-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`  
+Save again by `M500` and finally reload all stored data from Eeprom by `M501`  
 
 You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/)) or using the Terminal Tab in Octoprint.
   
