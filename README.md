@@ -58,6 +58,8 @@ Customize your configs, use "Sketchs -> Export compiled Binary", flash it, have 
 
 
 ## Flashing  
+***Important***: Don't forget to read and backup your current EEPROM-settings with `M503` before you start flashing!
+
 The display and the USB-Port are sharing the same wires so flashing the motherboard-firmware need some extra work.  
 There are two ways possible to flash the firmware.  
   
@@ -83,7 +85,6 @@ Steps:
 - Plug USB Cable  
 - Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs. <br> This could take several trys, no panic.
 
-**Important**: Don't forget to read and backup your current EEPROM-settings with `M503` before you start flashing!
   
 ### Reset to factory defaults
 I recommend to reset the newly flashed firmware to its defaults and overwrite any older settings.  
