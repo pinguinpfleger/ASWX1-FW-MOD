@@ -42,19 +42,19 @@ Individual adjustments can be made in [Configuration.h](/Marlin/Configuration.h)
 Of course the firmware must be recompiled than.  
 There are serveral ways to compile.
 
-\[Linux / Mac\]<br>
+\[Linux / Mac\]  
 An easy one do compile is [platformio CLI](https://docs.platformio.org/en/latest/installation.html#installation-methods) command.  
 To complile you just need execute `platformio run` in the root folder of this repository (where platformio.ini is also located).  
 The new compiled firmware is saved here: .pio/build/megaatmega2560/firmware.hex
 
-\[Windows\]<br>
+\[Windows\]  
 There is a great instruction how to [use Arduino-IDE on Marlin.org](https://marlinfw.org/docs/basics/install_arduino.html).
 This should be the easiest way on Windows.
 
 Bord: "Arduino/Genuino Mega or Mega 2560"  
 Processor: "ATmega2560 (Mega 2560)"
 
-Customize your configs, use "Sketchs -> Export compiled Binary", flash
+Customize your configs, use "Sketchs -> Export compiled Binary", flash it, have fun :)
 
 
 ## Flashing  
@@ -73,16 +73,16 @@ The [flash.sh](/flash.sh) script is trying to flash the command in a loop until 
 E.g. this works fine with an Octopi and SSH-connection like [PuTTy](https://www.putty.org/).
 To get your Firmware-File onto the octopi while using a Windows-mashine you can use [WinSCP](https://winscp.net/).
 
-Steps:
-
+Steps:  
 - Make sure Artillery Sidewinder X1 is unplugged from the power supply.  
 - Unplug USB Cable too.  
-- Connect your linux box (or mac) with the printer USB-Port.
-- Place firmware.hex and flash.sh in same directory and execute flash.sh.
+- Connect your Linux box (or Mac) with the printer USB-Port.
+- Place firmware.hex and flash.sh on your Linux box (or Mac) and execute flash.sh.
 - Enter Path and filename e.g. `./ASWX1_Marlin_2.0.4.4_V1.hex`
-- You will see timeout errors thats normal.  
+- You will see timeout errors - thats normal.  
 - Plug USB Cable  
-- Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs. This could take several trys, no panic.
+- Leave flash.sh running and unplug / plug USB Cable or hit the reset button until the flash.sh finishs.
+This could take several trys, no panic.
   
   
 ### Reset to factory defaults
