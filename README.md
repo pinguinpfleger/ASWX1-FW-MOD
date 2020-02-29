@@ -77,7 +77,7 @@ Steps:
 - Make sure Artillery Sidewinder X1 is unplugged from the power supply.  
 - Unplug USB Cable too.  
 - Connect your Linux box (or Mac) with the printer USB-Port.
-- \[Linux\]:Install AVRDude by `sudo apt-get update && apt-get upgrade && apt-get install avr-dude`  
+- \[Linux\]:Install AVRDude by `sudo apt-get update && apt-get upgrade && apt-get install avrdude`  
 - \[Mac\]: Install AVRDude by `brew install avrdude`  
 - Place firmware.hex and flash.sh on your Linux box (or Mac) and execute flash.sh.
 - Enter Path and filename (e.g. `./firmware.hex`)
