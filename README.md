@@ -93,13 +93,13 @@ followed by `M500` to save these default setting to EEPROM.
 After that you can restore your settings from your `M503`-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`  
 Save again by `M500` and finally reload all stored data from EEPROM by `M501`  
 
-You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/)) or using the Terminal Tab in Octoprint.
+You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/) or using the Terminal Tab in Octoprint.
   
 <br><br><hr>  
 
 ## Credits  
 The repository here is the continuation of the MarlinFW from [**Robscar's firmware mod** at Thingiverse](https://www.thingiverse.com/thing:3856144).  
-The modified firmware for the Makerbase MKS-TFT 3.2 touch display has been seperated to an own repository:  
+The modified firmware for the [Makerbase MKS-TFT 3.2 touch display](https://github.com/makerbase-mks/MKS-TFT/tree/master/MKS-TFT2.8-3.2) has been seperated to an own repository:  
 https://github.com/pinguinpfleger/ASWX1-TFTFW-MOD
   
 
