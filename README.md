@@ -42,12 +42,12 @@ Individual adjustments can be made in [Configuration.h](/Marlin/Configuration.h)
 Of course the firmware must be recompiled than.  
 There are serveral ways to compile.
 
-\[Linux / Mac\]
+\[Linux / Mac\]<br>
 An easy one do compile is [platformio CLI](https://docs.platformio.org/en/latest/installation.html#installation-methods) command.  
 To complile you just need execute `platformio run` in the root folder of this repository (where platformio.ini is also located).  
 The new compiled firmware is saved here: .pio/build/megaatmega2560/firmware.hex
 
-\[Windows\]
+\[Windows\]<br>
 There is a great instruction how to [use Arduino-IDE on Marlin.org](https://marlinfw.org/docs/basics/install_arduino.html).
 This should be the easiest way on Windows.
 
