@@ -77,6 +77,7 @@ Steps:
 - Make sure Artillery Sidewinder X1 is unplugged from the power supply.  
 - Unplug USB Cable too.  
 - Connect your Linux box (or Mac) with the printer USB-Port.
+- Install AVRDude by `sudo apt-get update && apt-get upgrade && apt-get install avr-dude`
 - Place firmware.hex and flash.sh on your Linux box (or Mac) and execute flash.sh.
 - Enter Path and filename e.g. `./ASWX1_Marlin_2.0.4.4_V1.hex`
 - You will see timeout errors - thats normal.  
@@ -91,7 +92,7 @@ I recommend to reset the newly flashed firmware to its defaults and overwrite an
 
 The gcode command to reset the firmware to the hardcoded defaults is `M502`,  
 followed by `M500` to save these default setting to EEPROM.  
-After that you can restore your settings from your `M503`-Backup e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`  
+After that you can restore your settings from your `M503`-Backup (e.g. `M92 X80.12 Y80.12 Z399.78 E420.00`)  
 Save again by `M500` and finally reload all stored data from EEPROM by `M501`  
 
 You can execute the gcode commands using a terminal program like Arduino-IDE, [Pronterface](https://www.pronterface.com/) or using the Terminal Tab in Octoprint.
