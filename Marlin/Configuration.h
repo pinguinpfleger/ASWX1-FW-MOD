@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(pinguinpfleger, ASWX1-FW-MOD)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(pinguinpfleger&FoodFighter, ASWX1-FW-MOD)" // Who made the changes.
 #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -134,7 +134,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Sidewinder X1"
+//#define CUSTOM_MACHINE_NAME "Sidewinder X1"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -488,7 +488,8 @@
   #define DEFAULT_Kp 10.85
   #define DEFAULT_Ki 0.75
   #define DEFAULT_Kd 39.12
-  // Sidewinder X1 bei 190° C
+  
+  // Sidewinder X1 bei 190° C			  
   // #define DEFAULT_Kp 11.01
   // #define DEFAULT_Ki 0.76
   // #define DEFAULT_Kd 39.91
@@ -539,7 +540,6 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
   // Sidewinder X1 bei 60 Grad
-  // M304 P83.48 I8.15 D213.72
   #define DEFAULT_bedKp 83.48
   #define DEFAULT_bedKi 8.15
   #define DEFAULT_bedKd 213.72
@@ -790,8 +790,8 @@
  */
 //#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 8.0
-  #define DEFAULT_YJERK 8.0
+  #define DEFAULT_XJERK 10.0
+  #define DEFAULT_YJERK 10.0
   #define DEFAULT_ZJERK  0.3
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
@@ -812,7 +812,7 @@
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.032 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
 #endif
 
 /**
@@ -878,7 +878,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE  // ASWX1-FW-MOD: Added For BABYSTEPPING
+#define FIX_MOUNTED_PROBE  // ASWX1-FW-MOD: activated to store BABYSTEPPING
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -1096,10 +1096,10 @@
 
 // The size of the print bed
 #define X_BED_SIZE 300
-#define Y_BED_SIZE 310
+#define Y_BED_SIZE 300
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2
+#define X_MIN_POS 0
 #define Y_MIN_POS -5
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -1359,7 +1359,7 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
 //
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING    // ASWX1-FW-MOD: activated to store BABYSTEPPING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 2)    // X point for Z homing when homing all axes (G28).
@@ -1367,8 +1367,8 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (80*60)
-#define HOMING_FEEDRATE_Z  (20*60)
+#define HOMING_FEEDRATE_XY (60*60)
+#define HOMING_FEEDRATE_Z  (10*60)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
